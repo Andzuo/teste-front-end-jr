@@ -1,14 +1,14 @@
 <script >
-    import loginScreen from './components/loginScreen.vue'
     import CardSend from './components/CardSend.vue'
     import Cards from './components/Cards.vue'
     import { ref } from 'vue'
+    import CardContent from './components/CardContent.vue'
 
     export default {
     components: {
-      loginScreen,
       CardSend,
       Cards,
+      CardContent,
     },
     setup () {
     const list = ref([])
@@ -31,10 +31,11 @@
     <img class="mt-28 w-50 h-10" src="../public/Logo.png" alt="">
     <h1 class="mt-14 mb-14 text-5xl text-white">Social Feed</h1>
 
-  <!-- <loginScreen></loginScreen> -->
-  
   <CardSend :onSend= postCard />
   <Cards :list = list />
+  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto" date="há 5 minutos" />
+  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto" date="há 3 dias" />
+  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoo" date="há 6 meses" />
 
  </div>
 </template>
