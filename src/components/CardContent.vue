@@ -30,8 +30,8 @@ export default {
 
   <div class="flex-col p-4">
     <div class="flex flex-1">
-      <img src="./../../public/Avatar.png" alt="" class="flex-shrink-0 w-11 h-11 lg:mr-8">
-      <div class="flex-1 lg:w-96 bg-secondary max-w-96 shadow-md flex flex-col rounded-lg items-end ">
+      <img src="./../../public/Avatar.png" alt="" class="flex-shrink-0 w-11 h-11 mr-3 lg:mr-3">
+      <div class="flex-1 bg-secondary max-w-96 shadow-md flex flex-col rounded-lg  ">
         <div class="w-full p-4">
           <div class="mb-2">
             <p class="p-2 w-full text-sm text-white border-none rounded-lg border border--300 opacity-60 focus:border-none">{{ text }}</p>
@@ -39,8 +39,8 @@ export default {
         </div>
       </div>
     </div>
-    <div class="flex ml-20">
-        <div class="mr-10 w-full justify-between">
+    <div class="flex w-full">
+        <div class="w-full ml-14 lg:mr-10 justify-between">
             <span class="text-white h-11 text-xs font-normal"> {{ timeFormated(date) }} </span>
         </div>
         <div class=" text-white flex justify-end items-end">

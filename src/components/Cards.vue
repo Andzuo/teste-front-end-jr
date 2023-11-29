@@ -19,7 +19,7 @@ import CardContent from './CardContent.vue';
 
 <template>
 
-<h1 class="mt-14 mb-14 text-5xl text-white">Últimos posts</h1>
+<h1 class="font-body font-semibold mt-14 mb-14 text-5xl text-white">Últimos posts</h1>
 <div v-for="card in list">
     <CardContent :text= card.text :date=card.date />
 </div>

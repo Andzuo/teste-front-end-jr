@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       width: {
-        '96': '798px',
+        '96': '46%',
         '50': '220px',
       },
       height: {
@@ -14,6 +14,15 @@ module.exports = {
       },
       maxWidth: {
         '96': '798px'
+      },
+      minWidth: {
+        '96': '47%'
+      },
+      marginLeft: {
+        '5': '100%'
+      },
+      fontFamily: {
+        body: ['Inter'],
       },
       backgroundImage: theme => ({
         'custom-image': "url('../public/image-bg.png')",
