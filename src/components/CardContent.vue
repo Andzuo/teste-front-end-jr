@@ -1,19 +1,26 @@
 <script>
 import { ref } from 'vue';
+import { formatDistance, subDays } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 export default {
   props: {
     text: String,
-    date: String,
+    date: Date,
   },
   setup() {
     const isLiked = ref(false);
+    const timeFormated = (date) => {
+      return formatDistance(date, new Date(), { addSuffix: true, locale: ptBR })
+      
+    }
+      
 
     const toggleLike = () => {
       isLiked.value = !isLiked.value;
     };
 
-    return { isLiked, toggleLike };
+    return { isLiked, toggleLike, timeFormated };
   },
 };
 
@@ -21,7 +28,7 @@ export default {
 
 <template>
 
-  <div class="flex-col ">
+  <div class="flex-col p-4">
     <div class="flex flex-1">
       <img src="./../../public/Avatar.png" alt="" class="flex-shrink-0 w-11 h-11 lg:mr-8">
       <div class="flex-1 lg:w-96 bg-secondary max-w-96 shadow-md flex flex-col rounded-lg items-end ">
@@ -32,9 +39,9 @@ export default {
         </div>
       </div>
     </div>
-    <div class="flex ml-24">
-        <div class="w-full justify-between">
-            <span class="text-white h-11 text-xs font-normal"> {{ date }} </span>
+    <div class="flex ml-20">
+        <div class="mr-10 w-full justify-between">
+            <span class="text-white h-11 text-xs font-normal"> {{ timeFormated(date) }} </span>
         </div>
         <div class=" text-white flex justify-end items-end">
             <button class='text-xs text-fav bg-secondary rounded p-1 mt-1 mb-10' @click="toggleLike">

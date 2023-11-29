@@ -2,20 +2,33 @@
     import CardSend from './components/CardSend.vue'
     import Cards from './components/Cards.vue'
     import { ref } from 'vue'
-    import CardContent from './components/CardContent.vue'
+    import { subMinutes, subDays, subMonths } from 'date-fns'
+
 
     export default {
     components: {
       CardSend,
       Cards,
-      CardContent,
     },
     setup () {
-    const list = ref([])
+    const list = ref([{
+      text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto',
+      date: subMinutes(new Date(), 5)
+    },
+    {
+      text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto',
+      date: subDays(new Date(), 3)
+    },
+    {
+      text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto',
+      date: subMonths(new Date(), 6)
+    },
 
+    ])
     const postCard = (text) => {
-      list.value.push({
-        text
+      list.value.unshift({
+        text, 
+        date: new Date()
       })
       console.log(text,list)
     };
@@ -33,9 +46,6 @@
 
   <CardSend :onSend= postCard />
   <Cards :list = list />
-  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto" date="há 5 minutos" />
-  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto" date="há 3 dias" />
-  <CardContent text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architectoo" date="há 6 meses" />
 
  </div>
 </template>
